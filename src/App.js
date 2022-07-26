@@ -1,5 +1,6 @@
-import Expenses from "./components/Expenses";
-
+import Expenses from "./components/Expenses/Expenses";
+import NewExpense from "./components/NewExpense/NewExpense";
+import React from "react";
 function App() {
   const expenses = [
     {
@@ -23,9 +24,14 @@ function App() {
     },
   ];
 
+  const addExpenseHandler = (expense) => {
+    console.log("In App.js");
+    console.log(expense);
+  };
+  //Chuyển dữ liệu từ NewExpense sang thành phần cha App nhờ hàm addExpenseHandler
   return (
     <div>
-      <h2>Let's get started!</h2>
+      <NewExpense onAddExpense={addExpenseHandler} />
       <Expenses items={expenses} />
     </div>
   );
