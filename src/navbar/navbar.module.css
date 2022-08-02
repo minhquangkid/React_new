@@ -4,6 +4,7 @@
   height: 180px;
   color: white;
   position: relative;
+  margin: 0px;
 }
 .title {
   float: left;

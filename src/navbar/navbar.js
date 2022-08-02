@@ -16,7 +16,6 @@ const Navbar = () => {
       {nav.map((item) => {
         return <NavBarItem key={item.type} test={item} />;
       })}
-      {/* <NavBarItem test={nav[1]} /> */}
     </div>
   );
 };
