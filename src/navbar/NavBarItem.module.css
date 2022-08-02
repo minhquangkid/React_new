@@ -1,0 +1,12 @@
+.lab {
+  float: left;
+  margin-left: 20px;
+  margin-top: 100px;
+  padding: 10px;
+}
+.lab.active {
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 20px;
+}
+/* có thể chỉ cần .active là được, không cần .lab.active */
