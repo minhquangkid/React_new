@@ -1,5 +1,22 @@
 import React from "react";
 import styles from "./header.module.css";
+import Iform from "./iform";
+
+const icon = [
+  {
+    icon: "fa fa-bed",
+    label: "Where are you going?",
+  },
+  {
+    icon: "fa fa-calendar",
+    label: "6/24/2022 to 6/24/2022",
+  },
+  {
+    icon: "fa fa-female",
+    label: "Where are you going?",
+  },
+];
+
 const Header = () => {
   return (
     <React.Fragment>
@@ -11,7 +28,12 @@ const Header = () => {
         </p>
         <button className={styles.button}>Sign in / Register</button>
       </div>
-      <div className={styles.inform}>input</div>
+      <div className={styles.inform}>
+        {icon.map((item) => {
+          return <Iform key={item.icon} content={item} />;
+        })}
+        <button className={styles.button}>Search</button>
+      </div>
     </React.Fragment>
   );
 };
