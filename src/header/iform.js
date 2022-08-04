@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import styles from "./header.module.css";
 const Ico = () => {
   return <i className="fa fa-bed"></i>;
 };
@@ -7,8 +7,15 @@ const Ico = () => {
 const Iform = (props) => {
   return (
     <React.Fragment>
-      <span>{<Ico />}</span>
-      <input type="text" placeholder="something"></input>
+      {/* <span>{<Ico />}</span> */}
+      <span style={{ marginLeft: "20px" }}>
+        <i className={props.content.icon}></i>
+      </span>
+      <input
+        type="text"
+        placeholder={props.content.label}
+        className={styles.textForm}
+      ></input>
     </React.Fragment>
   );
 };
