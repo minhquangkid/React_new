@@ -11,5 +11,5 @@ const NavBarItem = (props) => {
     </div>
   );
 };
-
+// dùng được kí hiệu icon là do trong file index.html đã import đường link "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
 export default NavBarItem;

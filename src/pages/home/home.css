@@ -11,3 +11,7 @@
   position: absolute;
   z-index: -1;
 }
+.part2 {
+  padding: 30px 0;
+  font-weight: bolder;
+}

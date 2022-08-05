@@ -1,0 +1,48 @@
+.bottomBackground {
+  background-color: blue;
+  width: 100%;
+  height: 200px;
+  margin-top: 50px;
+  margin-bottom: 30px;
+
+  text-align: center;
+  color: white;
+  /* line-height: 200px; */
+  /* position: relative; */
+  display: flex;
+
+  z-index: -1;
+}
+.center {
+  margin: auto;
+  /* position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  transform: translate(-50%, -50%); */
+}
+/* Căn giữa bằng relative và absolute,
+  tắt mở từng cái transform để thấy sự khác biệt*/
+.subcribe {
+  font-size: xx-large;
+  font-weight: 700;
+}
+.textInput {
+  width: 20rem;
+  height: 3rem;
+  border-radius: 5px;
+}
+
+/*
+có 3 cách để căn lề giữa nội dung như trong video nhưng vì ta đang bị định dạng bootstrap cho toàn bộ nên không thể dùng các tag h1,2,... mà chuyển sang dùng tag khác như <p>, <span>
+c1 :  dùng line-height thì ở phần nội dung dòng thứ 2 nó sẽ bị cách 1 quãng bằng đúng line-height
+c2 : dùng position : absolute thì dòng thứ 2 sẽ ko căn giữa, khó chỉnh
+Nên dùng cách 3 là display flex với  margin: auto và text-align: center;
+*/
+.button {
+  background-color: rgb(2, 153, 184);
+  color: white;
+  margin-left: 10px;
+  padding: 10px 20px;
+  border-radius: 5px;
+}

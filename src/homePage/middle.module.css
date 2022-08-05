@@ -1,0 +1,34 @@
+.imgLage {
+  width: 100%;
+  height: 300px;
+  border-radius: 20px;
+  z-index: -1;
+}
+.detail {
+  position: absolute;
+  left: 30px;
+  top: 200px;
+  color: white;
+  font-weight: 700;
+  font-size: larger;
+}
+.imgMin {
+  width: 100%;
+  height: 150px;
+  border-radius: 20px;
+  z-index: -1;
+}
+.detailHotel {
+  font-weight: 700;
+  font-size: larger;
+}
+.imgFour {
+  width: 100%;
+  height: 250px;
+  z-index: -1;
+}
+.mark {
+  padding: 5px;
+  color: white;
+  background-color: blue;
+}

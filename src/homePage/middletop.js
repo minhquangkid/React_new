@@ -1,6 +1,6 @@
 import React from "react";
 import cty from "../data/city.json";
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 import styles from "./middle.module.css";
 const MiddleTop = () => {
   return (
