@@ -3,6 +3,9 @@ import list from "../data/hotel_list.json";
 import "bootstrap/dist/css/bootstrap.min.css";
 import styles from "./middle.module.css";
 const MiddleBottom = () => {
+  const gogo = () => {
+    window.location.replace("http://localhost:3000/detail");
+  };
   return (
     <div className="row">
       {list.map((item) => {
@@ -15,7 +18,9 @@ const MiddleBottom = () => {
                 src={item.image_url}
               />
               <div>
-                <h5>{item.name}</h5>
+                <h5 onClick={gogo} className={styles.link}>
+                  {item.name}
+                </h5>
                 <p>{item.city}</p>
                 <h5>{`Starting from ${item.price}`}</h5>
                 <span className={styles.mark}>{item.rate}</span>

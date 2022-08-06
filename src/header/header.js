@@ -13,11 +13,14 @@ const icon = [
   },
   {
     icon: "fa fa-female",
-    label: "Where are you going?",
+    label: "1 adult-0 children-1 room",
   },
 ];
 
 const Header = () => {
+  const goTo = () => {
+    window.location.replace("http://localhost:3000/search");
+  };
   return (
     <React.Fragment>
       <div className={styles.head}>
@@ -32,7 +35,9 @@ const Header = () => {
         {icon.map((item) => {
           return <Iform key={item.icon} content={item} />;
         })}
-        <button className={styles.button}>Search</button>
+        <button className={styles.button} onClick={goTo}>
+          Search
+        </button>
       </div>
     </React.Fragment>
   );
