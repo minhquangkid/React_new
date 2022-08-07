@@ -7,7 +7,7 @@ const SearchList = () => {
   return (
     <div>
       {ds.map((e) => {
-        return <SearchListItem item={e} />;
+        return <SearchListItem key={e.name} item={e} />;
       })}
     </div>
   );

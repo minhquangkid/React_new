@@ -13,10 +13,10 @@ const Search = () => {
 
         <div className="container-flex">
           <div className="row">
-            <div className="col-4">
+            <div className="col-3">
               <SearchPopup />
             </div>
-            <div className="col-8">
+            <div className="col-9">
               <SearchList />
             </div>
           </div>
