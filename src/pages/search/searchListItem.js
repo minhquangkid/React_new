@@ -1,6 +1,10 @@
 import React from "react";
 import "./search.css";
 const SearchListItem = (props) => {
+  const goTo = () => {
+    window.location.replace("http://localhost:3000/detail");
+  };
+
   const cancel = () => {
     return (
       <React.Fragment>
@@ -36,7 +40,9 @@ const SearchListItem = (props) => {
                 <span className="rate">{props.item.rate}</span>
                 <p className="price">{props.item.price}</p>
                 <p className="inf">Includes taxes and fees</p>
-                <button className="avail">See availability</button>
+                <button className="avail" onClick={goTo}>
+                  See availability
+                </button>
               </div>
             </div>
           </div>

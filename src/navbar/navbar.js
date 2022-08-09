@@ -6,7 +6,7 @@ import nav from "../data/navBar.json";
 
 // trong file JSON của navBar và hotel_list nó chưa được đặt tên để export, nên ở đây ta tự đặt tên khi import nó như là nav, hotel
 const Navbar = () => {
-  console.log(nav);
+  //console.log(nav);
   // console.log(hotel);
   return (
     <div className={styles.nav}>

@@ -1,0 +1,40 @@
+.nut {
+  background-color: rgb(3, 139, 139);
+  color: white;
+  padding: 10px;
+  width: 100%;
+  font-weight: 700;
+  border-radius: 5px;
+}
+.bay {
+  float: right;
+  width: auto;
+  margin-right: 23px;
+}
+.bocuc {
+  display: flex;
+  flex-wrap: wrap;
+}
+.anh {
+  width: 340px;
+  height: auto;
+  margin: 10px 10px 0px 0px;
+  padding: 0px;
+}
+.duoi {
+  margin-right: 23px;
+  margin-top: 40px;
+}
+.fly {
+  background-color: rgba(157, 254, 222, 0.594);
+  padding: 10px 5px;
+  text-align: left;
+  float: right;
+  width: 300px;
+  height: auto;
+  margin-left: 10px;
+}
+.specialPrice {
+  margin: 20px 0px;
+  font-size: larger;
+}

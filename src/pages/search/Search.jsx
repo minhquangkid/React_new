@@ -3,7 +3,8 @@ import "../home/home.css";
 import Navbar from "../../navbar/navbar";
 import SearchPopup from "./searchPopup";
 import SearchList from "./searchList";
-
+import Foot from "../../homePage/foot";
+import Form from "../../homePage/form";
 const Search = () => {
   return (
     <React.Fragment>
@@ -21,6 +22,10 @@ const Search = () => {
             </div>
           </div>
         </div>
+      </div>
+      <Form />
+      <div className="home">
+        <Foot />
       </div>
     </React.Fragment>
   );

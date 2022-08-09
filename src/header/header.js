@@ -1,23 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./header.module.css";
 import Iform from "./iform";
-
-const icon = [
-  {
-    icon: "fa fa-bed",
-    label: "Where are you going?",
-  },
-  {
-    icon: "fa fa-calendar",
-    label: "6/24/2022 to 6/24/2022",
-  },
-  {
-    icon: "fa fa-female",
-    label: "1 adult-0 children-1 room",
-  },
-];
+import Popup from "./popup";
 
 const Header = () => {
+  const [icon, setIcon] = useState([
+    {
+      icon: "fa fa-bed",
+      label: "Where are you going?",
+    },
+    {
+      icon: "fa fa-calendar",
+      label: "6/24/2022 to 6/24/2022",
+    },
+    {
+      icon: "fa fa-female",
+      label: "1 adult-0 children-1 room",
+    },
+  ]);
+
+  const [pick, setpick] = useState(false);
+
+  const changing = (e) => {
+    setpick(e);
+  };
+  const changDate = (e) => {
+    let tam = icon;
+    tam[1].label = e;
+    console.log(tam);
+    setIcon(tam);
+  };
+
   const goTo = () => {
     window.location.replace("http://localhost:3000/search");
   };
@@ -33,11 +46,19 @@ const Header = () => {
       </div>
       <div className={styles.inform}>
         {icon.map((item) => {
-          return <Iform key={item.icon} content={item} />;
+          return (
+            <Iform
+              key={item.icon}
+              content={item}
+              isPick={pick}
+              receive={changing}
+            />
+          );
         })}
         <button className={styles.button} onClick={goTo}>
           Search
         </button>
+        <Popup ngay={changDate} />
       </div>
     </React.Fragment>
   );
