@@ -4,7 +4,7 @@ import Iform from "./iform";
 import Popup from "./popup";
 
 const Header = () => {
-  const [icon, setIcon] = useState([
+  const icon = [
     {
       icon: "fa fa-bed",
       label: "Where are you going?",
@@ -17,7 +17,8 @@ const Header = () => {
       icon: "fa fa-female",
       label: "1 adult-0 children-1 room",
     },
-  ]);
+  ];
+  const [giatri, setGiatri] = useState("");
 
   const [pick, setpick] = useState(false);
 
@@ -25,10 +26,8 @@ const Header = () => {
     setpick(e);
   };
   const changDate = (e) => {
-    let tam = icon;
-    tam[1].label = e;
-    console.log(tam);
-    setIcon(tam);
+    setGiatri(e);
+    setpick(false);
   };
 
   const goTo = () => {
@@ -52,13 +51,16 @@ const Header = () => {
               content={item}
               isPick={pick}
               receive={changing}
+              dienvao={giatri}
             />
           );
         })}
         <button className={styles.button} onClick={goTo}>
           Search
         </button>
-        <Popup ngay={changDate} />
+        <div className={pick ? styles.hien : styles.an}>
+          <Popup ngay={changDate} />
+        </div>
       </div>
     </React.Fragment>
   );

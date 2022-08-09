@@ -23,10 +23,21 @@
   margin-bottom: 20px;
   margin-top: -30px;
   background-color: white;
+  position: relative;
 }
 
 .textForm {
   padding: 10px;
   margin-right: 70px;
   border: none;
+  width: 215px;
+}
+.hien {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+.an {
+  display: none;
 }

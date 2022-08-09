@@ -31,6 +31,9 @@ const Iform = (props) => {
         onClick={(e) => {
           change(e);
         }}
+        defaultValue={
+          props.content.icon === "fa fa-calendar" ? props.dienvao : ""
+        }
       ></input>
     </React.Fragment>
   );
@@ -41,3 +44,6 @@ export default Iform;
 // ở đây ta tách icon riêng ra bên ngoài, kế nó là input
 // ta có thể tạo 1 component ngay trong trang js của component cha và chèn nó vào như Ico vào Iform
 // để sự kiện pick calendar chỉ xảy ra khi ta click vào ô text calendar, ta sẽ tạo 1 thuộc tính id cho <input> , ta không thể tạo thuộc tính như key thay cho id vì khi console.log(e) ta đọc property của nó thì chỉ có id là được dùng chứ ko có key
+
+// dùng Value thì nó chỉ nhận giá trị của calendar mà không thể nhập bằng tay được (read-only), nên ta dùng defaultValue thì có thể sử dụng được cả 2
+// TRÁNH NHẦM LẪN việc điền giá trị vào defaultValue chứ không phải placeholder
