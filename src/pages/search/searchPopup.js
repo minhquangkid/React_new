@@ -1,5 +1,7 @@
 import React from "react";
 import Order from "./order";
+import "./search.css";
+
 const SearchPopup = () => {
   const list = [
     { ten: "Min price per right", tam: "" },
@@ -25,7 +27,7 @@ const SearchPopup = () => {
           return <Order key={e.ten} item={e.ten} nothing={e.tam} />;
         })}
       </div>
-      <button>Search</button>
+      <button className="nut_search">Search</button>
     </div>
   );
 };

@@ -8,8 +8,10 @@ const SearchListItem = (props) => {
   const cancel = () => {
     return (
       <React.Fragment>
-        <p>Free cancellation</p>
-        <p>You can cancel later, so lock in this great price today!</p>
+        <p style={{ fontWeight: "700", color: "green" }}>Free cancellation</p>
+        <p style={{ color: "green" }}>
+          You can cancel later, so lock in this great price today!
+        </p>
       </React.Fragment>
     );
   };
@@ -28,17 +30,19 @@ const SearchListItem = (props) => {
           <div className="container-flex">
             <div className="row">
               <div className="col-8">
-                <h4>{props.item.name}</h4>
+                <h4 style={{ color: "rgb(0, 98, 255)" }}>{props.item.name}</h4>
                 <p>{props.item.distance}</p>
-                <p>{props.item.tag}</p>
-                <h6>{props.item.description}</h6>
+                <p>
+                  <span className="tag">{props.item.tag}</span>
+                </p>
+                <h6 style={{ fontWeight: "700" }}>{props.item.description}</h6>
                 <p>{props.item.type}</p>
                 <div>{props.item.free_cancel && cancel()}</div>
               </div>
               <div className="col-4 box">
                 <span className="rate_text">{props.item.rate_text}</span>
                 <span className="rate">{props.item.rate}</span>
-                <p className="price">{props.item.price}</p>
+                <p className="price">${props.item.price}</p>
                 <p className="inf">Includes taxes and fees</p>
                 <button className="avail" onClick={goTo}>
                   See availability

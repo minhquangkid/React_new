@@ -1,5 +1,5 @@
 .nut {
-  background-color: rgb(3, 139, 139);
+  background-color: rgba(49, 49, 255, 0.927);
   color: white;
   padding: 10px;
   width: 100%;
@@ -27,7 +27,7 @@
 }
 .fly {
   background-color: rgba(157, 254, 222, 0.594);
-  padding: 10px 5px;
+  padding: 10px 10px;
   text-align: left;
   float: right;
   width: 300px;
@@ -37,4 +37,15 @@
 .specialPrice {
   margin: 20px 0px;
   font-size: larger;
+}
+.dis {
+  margin: 10px 0px;
+  font-size: larger;
+  font-weight: 700;
+  color: rgba(28, 28, 254, 0.776);
+}
+.pri {
+  color: green;
+  font-size: larger;
+  font-weight: 700;
 }

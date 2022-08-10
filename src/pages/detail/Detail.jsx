@@ -28,8 +28,8 @@ const Detail = () => {
           <img src={imgLocal} alt="location" width="15" height="20"></img>{" "}
           {detail.address}
         </span>
-        <p>{detail.distance}</p>
-        <p>{detail.price}</p>
+        <p className="dis">{detail.distance}</p>
+        <p className="pri">{detail.price}</p>
         <div className="bocuc">
           {detail.photos.map((e, index) => {
             return <img className="anh" src={e} key={index} alt={index}></img>;
