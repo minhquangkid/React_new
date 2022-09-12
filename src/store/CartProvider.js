@@ -55,6 +55,10 @@ const cartReducer = (state, action) => {
       totalAmount: updatedTotalAmount,
     };
   }
+
+  if (action.type === "CLEAR") {
+    return defaultCartState;
+  }
   return defaultCartState;
 };
 // vẫn chưa hiểu action.item.amount và action.item.price ở đâu ra ??
@@ -72,11 +76,16 @@ const CartProvider = (props) => {
     dispatchCartAction({ type: "REMOVE", id: id });
   };
 
+  const clearCartHandler = () => {
+    dispatchCartAction({ type: "CLEAR" });
+  };
+
   const cartContext = {
     items: cartState.items,
     totalAmount: cartState.totalAmount,
     addItem: addItemToCartHandler,
     removeItem: removeItemFromCartHandler,
+    clearCart: clearCartHandler,
   };
   // cartContext này không có ghi hoa chữ C nên nó khác với cái import ở trên
 
