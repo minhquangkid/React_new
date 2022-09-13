@@ -1,0 +1,9 @@
+.back {
+  /* background-color: aqua; */
+  width: 100%;
+  height: 3000px;
+
+  border-width: 5px;
+  border-style: solid;
+  border-color: black;
+}
