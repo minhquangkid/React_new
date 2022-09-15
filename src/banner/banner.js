@@ -32,14 +32,12 @@ const Banner = () => {
     // console.log(link);
   }
   return (
-    // <React.Fragment>
-
     <div className={classes.back}>
       <img
         src={link.pic}
         alt="khong thay"
         width="100%"
-        height="auto"
+        height="800px"
         className={classes.image}
       />
       <div className={classes.content}>
@@ -53,11 +51,12 @@ const Banner = () => {
           Play
         </button>
         <button className={classes.button}>My List</button>
-        <p className={classes.text}>{link.overview}</p>
+        <div className={classes.custom}>
+          <p className={classes.text}>{link.overview}</p>
+        </div>
       </div>
     </div>
-    // </React.Fragment>
   );
 };
-// không nhấn vào 2 nút button được ?? có lẽ nên dùng javascript để chèn thuộc tính css background-image từ ngoài vào thì mới được
+// phải chỉnh css position : absolute cho tag <img> để có thể nhấn các button được
 export default Banner;

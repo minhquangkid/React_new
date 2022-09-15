@@ -4,7 +4,7 @@
 }
 .content {
   position: absolute;
-  top: 400px;
+  top: 350px;
   left: 50px;
   color: white;
   z-index: 10;
@@ -33,4 +33,11 @@
 
 .image {
   z-index: -9;
+  position: absolute;
+  top: 0px;
 }
+.custom {
+  overflow-y: auto;
+  height: 240px;
+}
+/* giới hạn chiều cao của ô text là 240px, nếu nội dung chữ vượt quá thì nó sẽ tạo srcoll bar để kéo */
