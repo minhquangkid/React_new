@@ -1,0 +1,36 @@
+.back {
+  position: relative;
+  z-index: -5;
+}
+.content {
+  position: absolute;
+  top: 400px;
+  left: 50px;
+  color: white;
+  z-index: 10;
+  width: 500px;
+  height: auto;
+}
+.title {
+  font-size: 3.5rem;
+}
+.button {
+  padding: 10px 30px;
+  color: white;
+  font-weight: 700;
+  font-size: 20px;
+  background-color: rgba(0, 0, 0, 0.461);
+  margin-right: 20px;
+  border-radius: 10px;
+}
+.text {
+  font-weight: 500;
+  font-size: 20px;
+  background-color: rgba(0, 0, 0, 0.461);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.image {
+  z-index: -9;
+}
