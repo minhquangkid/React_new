@@ -40,8 +40,8 @@ const Banner = () => {
         height="800px"
         className={classes.image}
       />
+      <h1 className={classes.title}>{link.title}</h1>
       <div className={classes.content}>
-        <h1 className={classes.title}>{link.title}</h1>
         <button
           className={classes.button}
           onClick={() => {
@@ -51,7 +51,7 @@ const Banner = () => {
           Play
         </button>
         <button className={classes.button}>My List</button>
-        <div className={classes.custom}>
+        <div className={classes.custom_Text}>
           <p className={classes.text}>{link.overview}</p>
         </div>
       </div>
