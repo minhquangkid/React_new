@@ -4,6 +4,7 @@ import useData from "../data/data";
 
 const MovieList = (props) => {
   const [arr, setArr] = useState([]);
+  let isOriginal = props.type === "Original";
 
   const { data } = useData(props.getLink, arrayHandle);
 
@@ -16,7 +17,9 @@ const MovieList = (props) => {
     return (
       <img
         key={item.id}
-        src={`https://image.tmdb.org/t/p/original/${item.backdrop_path}`}
+        src={`https://image.tmdb.org/t/p/original/${
+          isOriginal ? item.poster_path : item.backdrop_path
+        }`}
         alt="none"
         width="250px"
         height="auto"
@@ -25,6 +28,11 @@ const MovieList = (props) => {
     );
   });
 
-  return <div className={classes.cover}>{list}</div>;
+  return (
+    <React.Fragment>
+      <h2 className={classes.tieude}>{props.type}</h2>
+      <div className={classes.cover}>{list}</div>
+    </React.Fragment>
+  );
 };
 export default MovieList;

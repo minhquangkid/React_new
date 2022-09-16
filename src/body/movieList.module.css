@@ -3,12 +3,43 @@
   overflow-x: scroll;
 
   width: 100%;
-  height: 250px;
+  height: 300px;
   display: flex;
 }
+/* width */
+.cover::-webkit-scrollbar {
+  width: 2px;
+}
+
+/* Track */
+.cover::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+.cover::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+.cover::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 /* muốn dùng overflow thì phải dùng với đối tượng có thuộc tính là block, 
 và phải ràng buộc kích thước width, height cho nó,
 sau đó dùng  display: flex nếu full màn hình*/
 .pic {
-  margin-right: 20px;
+  margin-right: 10px;
+  transition: 0.5s;
+  padding: 20px;
+}
+.pic:hover {
+  transform: scale(1.2);
+}
+
+.tieude {
+  margin-left: 20px;
+  color: white;
+  margin-top: 100px;
 }
