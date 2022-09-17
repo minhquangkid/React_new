@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 // tạo 2 tham số truyền vào cho custom hook là đường link APi và hàm xử lý sau khi lấy được kết quả JSON API
 const useData = (url, handle) => {
-  let data;
+  // let dulieu
+
   useEffect(() => {
     const getData = async () => {
       // const response = await fetch(
@@ -27,8 +28,9 @@ const useData = (url, handle) => {
       }
       // console.log(response);
       // console.log(response.ok);
-      data = await response.json();
+      const data = await response.json();
       console.log(data);
+      // dulieu = data
 
       // chạy hàm xử lý
       handle(data);
@@ -38,10 +40,12 @@ const useData = (url, handle) => {
       console.log(error.message);
     });
   }, []);
+  // phải dùng usEffect để chỉ chạy lấy dữ liệu của fetch 1 lần duy nhất, vì nếu ko thì hàm handle sẽ cập nhật cho các state liên tục làm cho trang bị render thì lại render liên tục custom hook này
 
-  return {
-    data,
-  };
+  // return {data}
+  // trong custom hook, ta không cần dùng return để lấy dữ liệu trả về cũng được, nó chỉ có nhiệm vụ chạy hàm để lấy API và gán vô hàm xử lý handle
+
+  // ở đây ta dùng useEffect nên nó chỉ render 1 lần, ta tạo 1 biến ở ngoài useEffect tên là dulieu để chứa dữ liệu data JSON kiếm được thì sau khi trang render lại, custom hook cũng render lại làm cho biến dulieu bị reset lại ban đầu, nhưng useEffect không chạy lại nên biến dulieu sẽ có giá trị rỗng nên kết quả return của biến cũng rỗng
 };
 /////////// nên sử dụng custom hook để lấy API cho tất cả
 export default useData;

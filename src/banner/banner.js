@@ -4,12 +4,12 @@ import useData from "../data/data";
 
 const Banner = () => {
   const [link, setLink] = useState({});
-  const { data } = useData(
+  useData(
     "https://api.themoviedb.org/3/discover/tv?api_key=3997fc9014661d7c2ce89c2bbea4b9f8&with_network=123",
     bannerHandle
   );
   // ta phải truyền hàm xử lý vào custom hook vì hàm xử lý phải chạy trong luồng bất đồng bộ, do nó phải đợi lấy được kết quả bất đồng bộ thì mới chạy được
-  console.log(data);
+  // console.log(data);
 
   function bannerHandle(e) {
     let random = Math.floor(Math.random() * e.results.length - 1); // chạy random chọn 1 bộ phim
