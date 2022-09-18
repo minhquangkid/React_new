@@ -24,20 +24,23 @@ const Trailer = (props) => {
       });
 
       // nếu ko có được e.type === "Trailer" thì ta lọc lại để tìm e.type ===  "Teaser"
-      if (arrayFilter === []) {
+      if (arrayFilter.length === 0) {
         arrayFilter = getData.results.filter((e) => {
           return e.site === "YouTube" && e.type === "Teaser";
         });
       }
+      // tuyệt đối không dùng arrayFilter === [] mà phải dùng arrayFilter.length === 0 vì javascript so sánh phức tạp ko hiểu chỗ này ?
+      console.log(arrayFilter);
 
-      if (arrayFilter === []) {
+      if (arrayFilter.length === 0) {
         setStatus(false);
       } else {
+        setGetVideo(arrayFilter[0]);
         setStatus(true);
       }
 
-      setGetVideo(arrayFilter[0]);
       console.log(getVideo);
+      console.log(status);
     };
     getTrailer().catch((error) => {
       console.log(error);
@@ -52,13 +55,15 @@ const Trailer = (props) => {
     },
   };
 
+  function onReady(event) {
+    // access to player in all event handlers via event.target
+    event.target.pauseVideo();
+  }
+
   return (
     <div>
       {status && (
-        <YouTube>
-          videoId = {"_uX6of3vBu0"}
-          opts={opts}
-        </YouTube>
+        <YouTube videoId={getVideo.key} opts={opts} onReady={onReady} />
       )}
       {!status && (
         <img

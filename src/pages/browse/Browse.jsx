@@ -46,7 +46,7 @@ const Browse = () => {
   const [showData, setShowData] = useState({});
 
   const getDetail = (e) => {
-    console.log("lay : ", e);
+    // console.log("lay : ", e);
     if (showData !== e) {
       setShowData(e);
       setIsDifferent(true);
@@ -55,12 +55,12 @@ const Browse = () => {
       setShowData("");
     }
 
-    console.log("hien : ", showData);
+    // console.log("hien : ", showData);
     // khi setShowData 1 giá trị mới thì nó không cập nhật liền mà lên lịch để cập nhật sau khi chạy xong hàm getDetail, nên ta sẽ thấy console.log của nó không hiện ngay giá trị vừa mới cập nhật ở trên, nhưng nó không ảnh hưởng đến logic của chương trình nên ko sao
   };
   const getParent = (e) => {
     setParentID(e);
-    console.log(e);
+    // console.log(e);
   };
 
   const list = api.map((item) => {
