@@ -28,11 +28,12 @@ const MovieList = (props) => {
   }
 
   function khung(e) {
-    console.log(e.target.parentElement.parentElement);
-    console.log(e.target.parentElement.parentElement.id);
+    // console.log(e.target.parentElement.parentElement);
+    // console.log(e.target.parentElement.parentElement.id);
     const loai = e.target.parentElement.parentElement.id;
     props.clickParent(loai);
   }
+  //lấy ra id của khung chứa ảnh
 
   const list = arr.map((item) => {
     // console.log(arr);
@@ -47,7 +48,6 @@ const MovieList = (props) => {
         width="250px"
         height="auto"
         className={classes.pic}
-        // ref={getId}
         onClick={clickHandle}
       />
     );

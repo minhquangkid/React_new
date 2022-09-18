@@ -73,7 +73,7 @@ const Browse = () => {
           clickParent={getParent}
         />
         {parentID === item.typeFilm && isDifferent && (
-          <MovieDetail id={showData.id} />
+          <MovieDetail getInf={showData} />
         )}
       </React.Fragment>
     );
