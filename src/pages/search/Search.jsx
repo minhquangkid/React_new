@@ -1,4 +1,8 @@
 import React from "react";
+import classes from "./Search.module.css";
+import Navbar from "../../navbar/navbar";
+import SearchForm from "./SearchForm";
+import ResultList from "./resultList";
 
 const api = [
   {
@@ -38,8 +42,11 @@ const api = [
 const Search = () => {
   return (
     <React.Fragment>
-      <div className="app">
-        <h1>Search</h1>
+      <div className={classes.umbrella}>
+        <Navbar />
+        <SearchForm />
+        <h2 className={classes.title}>Search Result</h2>
+        <ResultList />
       </div>
     </React.Fragment>
   );

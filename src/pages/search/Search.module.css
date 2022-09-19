@@ -1,0 +1,70 @@
+.umbrella {
+  background-color: black;
+  color: white;
+  height: auto;
+}
+.cover {
+  display: flex;
+  justify-content: center;
+}
+.inside {
+  background-color: white;
+  width: 600px;
+  height: 200px;
+  margin: 50px 0px;
+  position: relative;
+}
+.Icon {
+  /* float: right; */
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  margin: 0px;
+}
+.inputText {
+  z-index: 6;
+  margin: 20px;
+  width: 500px;
+  height: 30px;
+  border-style: none;
+  font-size: larger;
+}
+.line {
+  height: 2px;
+  background-color: aqua;
+  border-color: aqua;
+  border-style: none;
+}
+
+.btnSearch {
+  position: absolute;
+  right: 20px;
+  bottom: 30px;
+  padding: 5px 10px;
+  background-color: dodgerblue;
+  color: white;
+  font-size: larger;
+}
+.btnReset {
+  position: absolute;
+  right: 120px;
+  bottom: 30px;
+  padding: 5px 10px;
+  font-size: larger;
+  background-color: white;
+  border-style: none;
+  color: rgb(84, 83, 83);
+}
+.title {
+  margin-left: 20px;
+  color: white;
+  margin-top: 100px;
+}
+.frame {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 20px;
+}
+.poster {
+  margin: 10px;
+}
