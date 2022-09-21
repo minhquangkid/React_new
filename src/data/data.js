@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 
 // tạo 2 tham số truyền vào cho custom hook là đường link APi và hàm xử lý sau khi lấy được kết quả JSON API
-const useData = (url, handle) => {
+const useData = (url, handle, depence) => {
   // let dulieu
 
   useEffect(() => {
@@ -39,7 +39,7 @@ const useData = (url, handle) => {
     getData().catch((error) => {
       console.log(error.message);
     });
-  }, []);
+  }, [depence]);
   // phải dùng usEffect để chỉ chạy lấy dữ liệu của fetch 1 lần duy nhất, vì nếu ko thì hàm handle sẽ cập nhật cho các state liên tục làm cho trang bị render thì lại render liên tục custom hook này
 
   // return {data}

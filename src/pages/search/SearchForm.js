@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import classes from "./Search.module.css";
 
-const SearchForm = () => {
+const SearchForm = (props) => {
+  const inputValue = useRef();
+
   const btnSearchHandle = () => {
-    console.log("search");
+    console.log(inputValue.current.value);
+    props.getValue(inputValue.current.value);
+  };
+
+  const btnResetHandle = () => {
+    inputValue.current.value = "";
   };
 
   return (
@@ -29,12 +36,15 @@ const SearchForm = () => {
           type="text"
           placeholder="Name of movie"
           className={classes.inputText}
+          ref={inputValue}
         />
         <hr className={classes.line}></hr>
         <button className={classes.btnSearch} onClick={btnSearchHandle}>
           Search
         </button>
-        <button className={classes.btnReset}>Reset</button>
+        <button className={classes.btnReset} onClick={btnResetHandle}>
+          Reset
+        </button>
       </div>
     </div>
   );

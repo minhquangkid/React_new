@@ -23,7 +23,7 @@ const MovieList = (props) => {
     // console.log(e.target.id);
     // console.log(arr.filter((item) => item.id == e.target.id));
     // dùng so sánh == vì id trong dữ liệu JSON là string
-    const [tam] = arr.filter((item) => item.id == e.target.id);
+    const [tam] = arr.filter((item) => +item.id === +e.target.id);
     props.click(tam);
   }
 

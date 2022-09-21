@@ -42,17 +42,21 @@ const api = [
 
 const Browse = () => {
   const [parentID, setParentID] = useState("");
-  const [isDifferent, setIsDifferent] = useState(false);
-  const [showData, setShowData] = useState({});
+  // const [isDifferent, setIsDifferent] = useState(false);
+  const [showData, setShowData] = useState({ id: 0, content: "", show: false });
 
   const getDetail = (e) => {
-    // console.log("lay : ", e);
-    if (showData !== e) {
-      setShowData(e);
-      setIsDifferent(true);
+    console.log("lay : ", e);
+    console.log(+showData.id);
+    console.log(+e.id);
+    if (+showData.id !== +e.id) {
+      setShowData({
+        id: e.id,
+        content: e,
+        show: true,
+      });
     } else {
-      setIsDifferent(false);
-      setShowData("");
+      setShowData({ id: 0, content: "", show: false });
     }
 
     // console.log("hien : ", showData);
@@ -72,8 +76,8 @@ const Browse = () => {
           click={getDetail}
           clickParent={getParent}
         />
-        {parentID === item.typeFilm && isDifferent && (
-          <MovieDetail getInf={showData} />
+        {parentID === item.typeFilm && showData.show && (
+          <MovieDetail getInf={showData.content} />
         )}
       </React.Fragment>
     );

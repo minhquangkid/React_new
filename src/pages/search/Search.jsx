@@ -1,55 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
 import classes from "./Search.module.css";
 import Navbar from "../../navbar/navbar";
 import SearchForm from "./SearchForm";
 import ResultList from "./resultList";
-
-const api = [
-  {
-    link: "https://api.themoviedb.org/3/discover/tv?api_key=3997fc9014661d7c2ce89c2bbea4b9f8&with_network=123",
-    typeFilm: "Original",
-  },
-  {
-    link: "https://api.themoviedb.org/3/trending/all/week?api_key=3997fc9014661d7c2ce89c2bbea4b9f8&language=en-US",
-    typeFilm: "Xu Hướng",
-  },
-  {
-    link: "https://api.themoviedb.org/3/movie/top_rated?api_key=3997fc9014661d7c2ce89c2bbea4b9f8&language=en-US",
-    typeFilm: "Xếp hạng cao",
-  },
-  {
-    link: "https://api.themoviedb.org/3/discover/movie?api_key=3997fc9014661d7c2ce89c2bbea4b9f8&with_genres=28",
-    typeFilm: "Hành động",
-  },
-  {
-    link: "https://api.themoviedb.org/3/discover/movie?api_key=3997fc9014661d7c2ce89c2bbea4b9f8&with_genres=35",
-    typeFilm: "Hài",
-  },
-  {
-    link: "https://api.themoviedb.org/3/discover/movie?api_key=3997fc9014661d7c2ce89c2bbea4b9f8&with_genres=27",
-    typeFilm: "Kinh dị",
-  },
-  {
-    link: "https://api.themoviedb.org/3/discover/movie?api_key=3997fc9014661d7c2ce89c2bbea4b9f8&with_genres=10749",
-    typeFilm: "Lãng mạn",
-  },
-  {
-    link: "https://api.themoviedb.org/3/discover/movie?api_key=3997fc9014661d7c2ce89c2bbea4b9f8&with_genres=99",
-    typeFilm: "Tài liệu",
-  },
-];
+import MovieDetail from "../../body/movieDetail";
 
 const Search = () => {
+  // console.log("đã render search");
+
+  const [request, setRequest] = useState("");
+  const [response, setResponse] = useState({ id: 0, content: "", show: false });
+
+  const getHandle = (e) => {
+    // console.log(e);
+    setRequest(e);
+  };
+
+  const responseHandle = (e) => {
+    console.log(e);
+
+    // phải so sánh bằng number chứ ko so sánh bằng object được, vì 2 object giống nhau hoài toàn nhưng khi so sánh == hay === đều ra false
+    if (e.id !== response.id) {
+      setResponse({
+        id: e.id,
+        content: e,
+        show: true,
+      });
+    } else {
+      setResponse({ id: 0, content: "", show: false });
+    }
+  };
+
   return (
     <React.Fragment>
       <div className={classes.umbrella}>
         <Navbar />
-        <SearchForm />
+        <SearchForm getValue={getHandle} />
         <h2 className={classes.title}>Search Result</h2>
-        <ResultList />
+        {response.show && <MovieDetail getInf={response.content} />}
+        <ResultList passValue={request} getDetail={responseHandle} />
       </div>
     </React.Fragment>
   );
 };
 
+// nên sử dụng useContext để trao đổi dữ liệu 2 component con
 export default Search;
