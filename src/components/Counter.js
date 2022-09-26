@@ -4,31 +4,34 @@ import { useSelector, useDispatch, connect } from "react-redux";
 // cái nào có chữ use là hook thì dùng cho function component, còn connect thì dùng cho cả function lẫn class đều dc nhưng dùng cho class tốt hơn
 
 import { Component } from "react";
+import { counterActions } from "../store/counter";
 
 const Counter = () => {
   const dispatch = useDispatch();
   // useDispatch là hàm gửi đi hành động trong redux
-  const counter = useSelector((state) => state.counter);
-  const show = useSelector((state) => state.showCounter);
+  const counter = useSelector((state) => state.counter.counter);
+  //
+  const show = useSelector((state) => state.counter.showCounter);
   // useSelector dùng để lấy state từ store ra sài
   // useSelector đã tích hợp sẵn subscription, nên component Counter sẽ được cập nhật tự động, và nhận được counter mới nhất bất cứ khi nào dữ liệu đó thay đổi trong Redux store
   // Những thay đổi đối với Redux store sẽ khiến cho component này chạy lại
 
   const IncrementHandler = () => {
-    dispatch({ type: "increment" });
+    dispatch(counterActions.increment());
   };
 
   const increaseHandler = () => {
-    dispatch({ type: "increase", amount: 5 });
+    dispatch(counterActions.increase(10));
   };
+  // truyền giá trị bổ sung thêm là 10 vào
   // thuộc tính bổ sung thêm như amount ta gọi là payload
 
   const DecrementHandler = () => {
-    dispatch({ type: "decrement" });
+    dispatch(counterActions.decrement());
   };
 
   const toggleCounterHandler = () => {
-    dispatch({ type: "toggle" });
+    dispatch(counterActions.toggleCounter());
   };
 
   return (
@@ -37,7 +40,7 @@ const Counter = () => {
       {show && <div className={classes.value}>{counter}</div>}
       <div>
         <button onClick={IncrementHandler}>Increment</button>
-        <button onClick={increaseHandler}>Increment by 5</button>
+        <button onClick={increaseHandler}>Increment by 10</button>
         <button onClick={DecrementHandler}>Decrement</button>
       </div>
       <button onClick={toggleCounterHandler}>Toggle Counter</button>
