@@ -8,32 +8,42 @@ import CartPage from "./pages/CartPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
+import Navbar from "./Navbar/Navbar";
+import Footer from "./Footer/Footer";
+import { Fragment } from "react";
 
 function App() {
   return (
-    <Switch>
-      <Route path="/" exact>
-        <HomePage />
-      </Route>
-      <Route path="/shop">
-        <ShopPage />
-      </Route>
-      <Route path="cart">
-        <CartPage />
-      </Route>
-      <Route path="/checkout">
-        <CheckoutPage />
-      </Route>
-      <Route path="/login">
-        <LoginPage />
-      </Route>
-      <Route path="/register">
-        <RegisterPage />
-      </Route>
-      <Route path="/detail/:id">
-        <DetailPage />
-      </Route>
-    </Switch>
+    <Fragment>
+      <div className="layout">
+        <Navbar />
+
+        <Switch>
+          <Route path="/" exact>
+            <HomePage />
+          </Route>
+          <Route path="/shop">
+            <ShopPage />
+          </Route>
+          <Route path="cart">
+            <CartPage />
+          </Route>
+          <Route path="/checkout">
+            <CheckoutPage />
+          </Route>
+          <Route path="/login">
+            <LoginPage />
+          </Route>
+          <Route path="/register">
+            <RegisterPage />
+          </Route>
+          <Route path="/detail/:id">
+            <DetailPage />
+          </Route>
+        </Switch>
+      </div>
+      <Footer />
+    </Fragment>
   );
 }
 

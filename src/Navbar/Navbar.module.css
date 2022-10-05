@@ -1,0 +1,26 @@
+.frame {
+  height: 30px;
+  padding: 20px 0px;
+  font-size: x-large;
+}
+
+.textLeft {
+  float: left;
+}
+.textLeft span {
+  margin-right: 10px;
+}
+.textRight {
+  float: right;
+}
+.textRight span {
+  margin-left: 10px;
+}
+.active {
+  color: rgb(118, 118, 3);
+  font-weight: 700;
+}
+.titile {
+  font-size: xx-large;
+  text-align: center;
+}

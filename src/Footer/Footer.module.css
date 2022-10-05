@@ -1,0 +1,23 @@
+.back {
+  background-color: black;
+  width: 100%;
+  height: 300px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.frame {
+  width: 70%;
+  margin: auto;
+  display: flex;
+}
+.frame div {
+  width: 100%;
+  display: inline;
+}
+.frame p {
+  color: white;
+  list-style-type: none;
+  margin-left: 0;
+}
