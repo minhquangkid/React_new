@@ -5,15 +5,21 @@ import img2 from "../Resource Assignment 03/product_2.png";
 import img3 from "../Resource Assignment 03/product_3.png";
 import img4 from "../Resource Assignment 03/product_4.png";
 import img5 from "../Resource Assignment 03/product_5.png";
+import { useHistory } from "react-router-dom";
 
 const ListCategories = () => {
+  const history = useHistory();
+  const clickHandler = () => {
+    history.push("/shop");
+  };
+
   return (
     <Fragment>
       <div className={classes.header}>
         <h3>CAREFULLY CREATED COLLECTIONS</h3>
         <h1>BROWSE OUR CATEGORIES</h1>
       </div>
-      <div className={classes.frame}>
+      <div className={classes.frame} onClick={clickHandler}>
         <div>
           <img src={img1} alt="1" />
         </div>
@@ -21,7 +27,7 @@ const ListCategories = () => {
           <img src={img2} alt="2" />
         </div>
       </div>
-      <div className={classes.frame}>
+      <div className={classes.frame} onClick={clickHandler}>
         <div>
           <img src={img3} alt="3" />
         </div>

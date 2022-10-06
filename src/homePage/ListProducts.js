@@ -11,7 +11,7 @@ const ListProducts = () => {
   );
 
   function getApi(e) {
-    console.log(e);
+    // console.log(e);
     setList(e);
   }
 
@@ -32,9 +32,18 @@ const ListProducts = () => {
     return chuoi;
   };
   //count % 3 là count chia 3 lấy phần dư
+
+  const getDetail = (e) => {
+    // console.log(e.target.parentNode.id);
+    const detail = e.target.parentNode.id;
+    const chosen = list.filter((e) => {
+      return e._id.$oid === detail;
+    });
+  };
+
   const tam = list.map((e) => {
     return (
-      <div key={e._id.$oid}>
+      <div key={e._id.$oid} id={e._id.$oid} onClick={getDetail}>
         <img src={e.img1} alt={e.name} />
         <h3>{e.name}</h3>
         <p>{`${tinhtoan(e.price)} VNĐ`}</p>

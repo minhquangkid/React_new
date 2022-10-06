@@ -12,7 +12,7 @@ const useData = (url, handle, depence) => {
       // console.log(response);
       // console.log(response.ok);
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
       // chạy hàm xử lý
 
       handle(data);
