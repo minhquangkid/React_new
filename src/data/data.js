@@ -1,5 +1,23 @@
 import React, { useEffect, useState, useRef } from "react";
 
+export const tinhtoan = (arr) => {
+  const leng = arr.length;
+  let com = ",";
+  let chuoi = "";
+  let count = 0;
+
+  for (let i = leng - 1; i > -1; i--) {
+    chuoi = arr[i].concat(chuoi);
+    count++;
+    if (count % 3 === 0 && i !== 0) {
+      chuoi = com.concat(chuoi);
+    }
+    // console.log(chuoi);
+  }
+  return chuoi;
+};
+//count % 3 là count chia 3 lấy phần dư
+
 // tạo 2 tham số truyền vào cho custom hook là đường link APi và hàm xử lý sau khi lấy được kết quả JSON API
 const useData = (url, handle, depence) => {
   useEffect(() => {

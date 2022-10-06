@@ -3,6 +3,7 @@ import classes from "./ListProducts.module.css";
 import useData from "../data/data";
 import { useDispatch } from "react-redux";
 import { popupActions } from "../store/PopupStore";
+import { tinhtoan } from "../data/data";
 
 const ListProducts = () => {
   const [list, setList] = useState([]);
@@ -17,24 +18,6 @@ const ListProducts = () => {
     // console.log(e);
     setList(e);
   }
-
-  const tinhtoan = (arr) => {
-    const leng = arr.length;
-    let com = ",";
-    let chuoi = "";
-    let count = 0;
-
-    for (let i = leng - 1; i > -1; i--) {
-      chuoi = arr[i].concat(chuoi);
-      count++;
-      if (count % 3 === 0 && i !== 0) {
-        chuoi = com.concat(chuoi);
-      }
-      // console.log(chuoi);
-    }
-    return chuoi;
-  };
-  //count % 3 là count chia 3 lấy phần dư
 
   const getDetail = (e) => {
     // console.log(e.target.parentNode.id);
