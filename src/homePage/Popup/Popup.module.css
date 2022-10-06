@@ -1,0 +1,25 @@
+.frame {
+  display: flex;
+  padding: 50px;
+  position: relative;
+}
+.frame div {
+  width: 100%;
+  height: auto;
+  text-align: left;
+  margin: 30px;
+}
+.frame img {
+  width: 100%;
+  height: auto;
+}
+.btn {
+  position: absolute;
+  right: 50px;
+  top: 20px;
+  padding: 6px 8px;
+  font-size: xx-large;
+  font-weight: 700;
+  background-color: transparent;
+  border-color: transparent;
+}

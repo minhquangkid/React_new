@@ -14,9 +14,18 @@ const Popup = () => {
   };
 
   return (
-    <div>
-      <img src={detail.img1} alt={detail.name} />
-      <button onClick={closeHandler}>&#x2716;</button>
+    <div className={classes.frame}>
+      <button className={classes.btn} onClick={closeHandler}>
+        &times;
+      </button>
+      <div>
+        <img src={detail.img1} alt={detail.name} />
+      </div>
+      <div>
+        <h3>{detail.name}</h3>
+        <h4>{detail.price}</h4>
+        <p>{detail.long_desc}</p>
+      </div>
     </div>
   );
 };
