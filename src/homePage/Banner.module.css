@@ -1,0 +1,20 @@
+img {
+  width: 100%;
+  height: auto;
+}
+.frame {
+  position: relative;
+}
+.title {
+  position: absolute;
+  text-align: left;
+  left: 60px;
+  top: 100px;
+  width: 30%;
+}
+.title button {
+  padding: 10px 20px;
+  background-color: rgb(50, 50, 50);
+  color: white;
+  font-size: large;
+}
