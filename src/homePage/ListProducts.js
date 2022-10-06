@@ -1,9 +1,12 @@
 import { Fragment, useEffect, useState } from "react";
 import classes from "./ListProducts.module.css";
 import useData from "../data/data";
+import { useDispatch } from "react-redux";
+import { popupActions } from "../store/PopupStore";
 
 const ListProducts = () => {
   const [list, setList] = useState([]);
+  const dispatch = useDispatch();
 
   useData(
     "https://firebasestorage.googleapis.com/v0/b/funix-subtitle.appspot.com/o/Boutique_products.json?alt=media&token=dc67a5ea-e3e0-479e-9eaf-5e01bcd09c74",
@@ -36,9 +39,11 @@ const ListProducts = () => {
   const getDetail = (e) => {
     // console.log(e.target.parentNode.id);
     const detail = e.target.parentNode.id;
-    const chosen = list.filter((e) => {
+    const [chosen] = list.filter((e) => {
       return e._id.$oid === detail;
     });
+    // console.log(chosen);
+    dispatch(popupActions.show_popup(chosen));
   };
 
   const tam = list.map((e) => {
