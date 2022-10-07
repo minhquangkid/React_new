@@ -4,10 +4,11 @@
 .frame {
   display: flex;
 }
-.frame div {
+.col {
   width: 100%;
   height: auto;
   margin: 10px;
+  position: relative;
 }
 
 .frame img {
@@ -15,12 +16,13 @@
   height: auto;
   z-index: -5;
 }
-/* .frame :hover {
-  animation-name: background-color;
-  animation-duration: 500ms;
+.back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: red;
+  z-index: 5;
 }
-@keyframes background-color {
-  100% {
-    background-color: #4791d0;
-  }
-} */
+.back :hover {
+  background-color: aquamarine;
+}

@@ -31,6 +31,7 @@ const Popup = () => {
           <h3>{detail.name}</h3>
           <h4>{tinhtoan(detail.price)}</h4>
           <p>{detail.long_desc}</p>
+          <button className={classes.view}>View Detail</button>
         </div>
       </div>
     </div>

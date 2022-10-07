@@ -7,6 +7,7 @@ import Popup from "../homePage/Popup/Popup";
 import { Backdrop } from "../homePage/Popup/Popup";
 import classes from "./HomePage.module.css";
 import { useSelector } from "react-redux";
+import Extra from "../homePage/extra";
 
 const HomePage = () => {
   const show = useSelector((state) => state.popup.isShow);
@@ -17,6 +18,7 @@ const HomePage = () => {
       <ListProducts />
       {show && <Popup />}
       {show && <Backdrop />}
+      <Extra />
     </div>
   );
 };

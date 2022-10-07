@@ -44,3 +44,10 @@
   background: white;
   border-radius: 10px;
 }
+.view {
+  height: 60px;
+  width: 120px;
+  background-color: rgba(0, 0, 0, 0.724);
+  color: white;
+  font-size: large;
+}

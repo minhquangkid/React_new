@@ -19,22 +19,25 @@ const ListCategories = () => {
         <h3>CAREFULLY CREATED COLLECTIONS</h3>
         <h1>BROWSE OUR CATEGORIES</h1>
       </div>
+
       <div className={classes.frame} onClick={clickHandler}>
-        <div>
+        <div className={classes.col}>
+          <div className={classes.back}></div>
           <img src={img1} alt="1" />
         </div>
-        <div>
+
+        <div className={classes.col}>
           <img src={img2} alt="2" />
         </div>
       </div>
       <div className={classes.frame} onClick={clickHandler}>
-        <div>
+        <div className={classes.col}>
           <img src={img3} alt="3" />
         </div>
-        <div>
+        <div className={classes.col}>
           <img src={img4} alt="4" />
         </div>
-        <div>
+        <div className={classes.col}>
           <img src={img5} alt="5" />
         </div>
       </div>
