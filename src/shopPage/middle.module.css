@@ -1,30 +1,43 @@
 .container {
   display: flex;
-  align-items: stretch;
+  /* align-items: stretch; */
   text-align: left;
 }
-.leftCol {
-  flex-grow: 1;
+.left {
+  /* flex-grow: 1; */
+  margin-right: 30px;
+  width: 25%;
+  height: auto;
 }
-.leftCol h4 {
+.left h4 {
   background-color: rgb(163, 170, 168);
   font-weight: 700;
   padding: 20px;
 }
-.leftCol p {
+.left p {
   padding-left: 20px;
+}
+.right {
+  width: 75%;
+  padding-top: 50px;
 }
 
 .rightCol {
-  flex-grow: 3;
+  /* flex-grow: 3; */
   display: flex;
   flex-wrap: wrap;
+  margin: 0px;
+  padding: 0px;
 }
 .rightCol div {
-  width: 50px;
+  width: 33%;
   height: auto;
 }
 .rightCol img {
   width: 100%;
-  height: 50px;
+  height: auto;
+}
+.box {
+  word-wrap: break-word;
+  text-align: center;
 }
