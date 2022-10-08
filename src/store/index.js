@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import popupReducer from "./PopupStore";
+import listShopReducer from "./ListShopStore";
 
 // popupReducer là ta tự đặt tên, nó sẽ lấy phần export default từ các trang xuất
 
@@ -11,6 +12,7 @@ import popupReducer from "./PopupStore";
 const store = configureStore({
   reducer: {
     popup: popupReducer,
+    listShop: listShopReducer,
   },
 });
 

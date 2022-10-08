@@ -18,11 +18,13 @@ export const tinhtoan = (arr) => {
 };
 //count % 3 là count chia 3 lấy phần dư
 
-// tạo 2 tham số truyền vào cho custom hook là đường link APi và hàm xử lý sau khi lấy được kết quả JSON API
-const useData = (url, handle, depence) => {
+// tạo  tham số truyền vào cho custom hook là  hàm xử lý sau khi lấy được kết quả JSON API , và biến depence cho useEffect
+const useData = (handle, depence) => {
   useEffect(() => {
     const getData = async () => {
-      const response = await fetch(url);
+      const response = await fetch(
+        "https://firebasestorage.googleapis.com/v0/b/funix-subtitle.appspot.com/o/Boutique_products.json?alt=media&token=dc67a5ea-e3e0-479e-9eaf-5e01bcd09c74"
+      );
 
       if (!response.ok) {
         throw new Error("Something went wrong!");

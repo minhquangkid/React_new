@@ -6,7 +6,7 @@ import Middle from "../shopPage/middle";
 const ShopPage = () => {
   return (
     <div>
-      <BannerShop />
+      {/* <BannerShop /> */}
       <Middle />
     </div>
   );

@@ -6,15 +6,25 @@
 .leftCol {
   flex-grow: 1;
 }
-.rightCol {
-  flex-grow: 3;
-}
 .leftCol h4 {
-  width: 100%;
   background-color: rgb(163, 170, 168);
   font-weight: 700;
   padding: 20px;
 }
 .leftCol p {
   padding-left: 20px;
+}
+
+.rightCol {
+  flex-grow: 3;
+  display: flex;
+  flex-wrap: wrap;
+}
+.rightCol div {
+  width: 50px;
+  height: auto;
+}
+.rightCol img {
+  width: 100%;
+  height: 50px;
 }
