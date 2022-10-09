@@ -4,7 +4,7 @@ import useData from "../data/data";
 import { useDispatch } from "react-redux";
 import { popupActions } from "../store/PopupStore";
 import { tinhtoan } from "../data/data";
-
+import ImgGroup from "../data/imgGroup";
 const ListProducts = () => {
   const [list, setList] = useState([]);
   const dispatch = useDispatch();
@@ -29,9 +29,7 @@ const ListProducts = () => {
   const tam = list.map((e) => {
     return (
       <div key={e._id.$oid} id={e._id.$oid} onClick={getDetail}>
-        <img src={e.img1} alt={e.name} />
-        <h3>{e.name}</h3>
-        <p>{`${tinhtoan(e.price)} VNĐ`}</p>
+        <ImgGroup img1={e.img1} name={e.name} price={e.price} />
       </div>
     );
   });

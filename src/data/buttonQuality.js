@@ -5,7 +5,9 @@ const ButtonQuality = () => {
   const [number, setNumber] = useState(1);
 
   const minus = () => {
-    setNumber((prev) => prev - 1);
+    if (number > 1) {
+      setNumber((prev) => prev - 1);
+    }
   };
   const plus = () => {
     setNumber((prev) => prev + 1);

@@ -1,0 +1,37 @@
+.frame {
+  display: flex;
+  text-align: left;
+}
+.frame > div {
+  width: 50%;
+  height: auto;
+  margin: 20px;
+}
+.adjust > span {
+  float: left;
+  width: auto;
+  padding: 10px 20px;
+}
+.adjust > label {
+  margin: 20px;
+}
+.btn {
+  width: auto;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.724);
+  color: white;
+  font-size: large;
+  height: auto;
+}
+.fix {
+  white-space: pre-wrap; /* or pre-line */
+}
+.discription {
+  text-align: left;
+}
+.bottom {
+  display: flex;
+}
+.bottom > div {
+  width: 25%;
+}

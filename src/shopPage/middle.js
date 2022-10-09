@@ -5,8 +5,11 @@ import { useCallback, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { listShopActions } from "../store/ListShopStore";
 import { tinhtoan } from "../data/data";
+import ImgGroup from "../data/imgGroup";
+import { useHistory } from "react-router-dom";
 
 const Middle = () => {
+  const history = useHistory();
   const dispatch = useDispatch();
   const [data, setData] = useState([]);
   // state data này chỉ là bước trung gian để lọc dữ liệu và gán vào listDetail
@@ -30,6 +33,12 @@ const Middle = () => {
   //cũng ko thể dùng useCallback vì nó cũng tương tự useEffect, và cũng ko thể lồng các hook vào nhau như useEffect chứ useData hoặc useCallback
 
   useData(getData);
+
+  const getId = (e) => {
+    const chosen = e.target.id;
+    // console.log(chosen);
+    history.push(`/detail/${chosen}`);
+  };
 
   const getTitle = (e) => {
     //   console.log(e.target);
@@ -70,10 +79,13 @@ const Middle = () => {
         <div className={classes.rightCol}>
           {listDetail.map((e) => {
             return (
-              <div key={e._id.$oid} className={classes.box}>
-                <img src={e.img1} alt={e.name} />
-                <h5>{e.name}</h5>
-                <p>{`${tinhtoan(e.price)} VNĐ`}</p>
+              <div key={e._id.$oid} className={classes.box} onClick={getId}>
+                <ImgGroup
+                  img1={e.img1}
+                  name={e.name}
+                  price={e.price}
+                  id={e._id.$oid}
+                />
               </div>
             );
           })}
