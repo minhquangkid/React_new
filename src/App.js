@@ -16,33 +16,40 @@ function App() {
   return (
     <Fragment>
       <div className="layout">
-        <Navbar />
-
         <Switch>
           <Route path="/" exact>
+            <Navbar />
             <HomePage />
+            <Footer />
           </Route>
           <Route path="/shop">
+            <Navbar />
             <ShopPage />
+            <Footer />
           </Route>
           <Route path="cart">
+            <Navbar />
             <CartPage />
+            <Footer />
           </Route>
           <Route path="/checkout">
+            <Navbar />
             <CheckoutPage />
-          </Route>
-          <Route path="/login">
-            <LoginPage />
-          </Route>
-          <Route path="/register">
-            <RegisterPage />
+            <Footer />
           </Route>
           <Route path="/detail/:id">
+            <Navbar />
             <DetailPage />
+            <Footer />
           </Route>
         </Switch>
       </div>
-      <Footer />
+      <Route path="/login">
+        <LoginPage />
+      </Route>
+      <Route path="/register">
+        <RegisterPage />
+      </Route>
     </Fragment>
   );
 }

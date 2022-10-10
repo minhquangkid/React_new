@@ -20,7 +20,7 @@ const Extra = () => {
       </div>
       <div className={classes.sub}>
         <div className={classes.col}>
-          <h1>LET'SBE FRIENDS!</h1>
+          <h1>LET'S BE FRIENDS!</h1>
           <p>Nisi nisi tempor consequat laboris nisi</p>
         </div>
         <div className={classes.col}>
