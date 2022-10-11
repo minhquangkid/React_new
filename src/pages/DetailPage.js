@@ -5,17 +5,22 @@ import ButtonQuality from "../data/buttonQuality";
 import useData, { tinhtoan } from "../data/data";
 import ImgGroup from "../data/imgGroup";
 import classes from "./DetailPage.module.css";
+import { useDispatch } from "react-redux";
+import { listCartActions } from "../store/listCart";
 
 const DetailPage = () => {
+  const dispatch = useDispatch();
+  const history = useHistory();
+
   const [detail, setDetail] = useState({
     price: "",
     long_desc: "",
     category: "",
   });
   const [list, setList] = useState([]);
+  const [amout, setAmout] = useState(1);
   const params = useParams();
   // dùng id trong params.id  vì trong App.js ta đặt <Route path="/detail/:id">
-  const history = useHistory();
 
   useData(getData);
 
@@ -38,6 +43,22 @@ const DetailPage = () => {
     // đề bài ko yêu cầu chỗ này nhưng nó ko hoạt động
   };
 
+  const getValue = (e) => {
+    // console.log(e);
+    setAmout(e);
+  };
+
+  const submitHandle = () => {
+    const pack = { ...detail, amout };
+    // console.log(pack);
+    let getOld = JSON.parse(localStorage.getItem("cartList")) || [];
+    // console.log(getOld);
+    getOld.push(pack);
+    // console.log(getOld);
+    localStorage.setItem("cartList", JSON.stringify(getOld));
+    dispatch(listCartActions.add_cart(getOld));
+  };
+
   return (
     <Fragment>
       <div className={classes.frame}>
@@ -54,9 +75,11 @@ const DetailPage = () => {
           <div className={classes.adjust}>
             <span>QUANTITY </span>
             <span>
-              <ButtonQuality />
+              <ButtonQuality num={getValue} />
             </span>
-            <span className={classes.btn}>Add to Cart</span>
+            <span className={classes.btn} onClick={submitHandle}>
+              Add to Cart
+            </span>
           </div>
         </div>
       </div>
