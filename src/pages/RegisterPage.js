@@ -10,7 +10,7 @@ const RegisterPage = () => {
   if (userArray.length !== 0) {
     userArray = JSON.parse(userArray);
   }
-  console.log(userArray);
+  // console.log(userArray);
 
   const nameRef = useRef();
   const emailRef = useRef();
@@ -23,16 +23,6 @@ const RegisterPage = () => {
     const getName = nameRef.current.value;
     if (getName === "") {
       err.push("khong de trong input name");
-      return;
-    }
-
-    const test = userArray.filter((item) => {
-      return item.name === getName;
-    });
-    console.log(test);
-    if (test.length !== 0) {
-      console.log("bi trung");
-      err.push("user Full name da ton tai");
       return;
     }
 
@@ -49,6 +39,17 @@ const RegisterPage = () => {
       err.push("email phai co @");
       return;
     }
+
+    const test = userArray.filter((item) => {
+      return item.email === getEmail;
+    });
+    console.log(test);
+    if (test.length !== 0) {
+      console.log("bi trung");
+      err.push("email da ton tai");
+      return;
+    }
+
     inf.email = getEmail;
   };
 
