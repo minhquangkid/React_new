@@ -16,7 +16,13 @@ const ListCart = createSlice({
     },
     update_cart(state, action) {
       if (state.content.length !== 0) {
-        state.content[action.payload.order].amout = action.payload.value;
+        // state.content[action.payload.order].amout = action.payload.value;
+        let index = state.content.findIndex(
+          (e) => e._id.$oid === action.payload.order
+        );
+        if (index !== -1) {
+          state.content[index].amout = action.payload.value;
+        }
       }
     },
     delete_cart(state, action) {

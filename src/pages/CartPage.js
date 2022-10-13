@@ -41,18 +41,14 @@ const CartPage = () => {
     dispatch(listCartActions.update_cart(gop));
   };
 
-  // if (listCart.length !== 0) {
-  //   localStorage.setItem("cartList", JSON.stringify(listCart));
-  // }
+  useEffect(() => {
+    localStorage.setItem("cartList", JSON.stringify(listCart));
+  }, [getOrder]);
+  // khi click vào thay đổi số lượng sản phẩm thì sẽ cập nhật lại localStore luôn,còn các trường hợp khác thì ko cập nhật
 
-  const showList = listCart.map((item, index) => {
+  const showList = listCart.map((item) => {
     return (
-      <div
-        className={classes.list}
-        key={item._id.$oid}
-        id={index}
-        onClick={getOrder}
-      >
+      <div className={classes.list} key={item._id.$oid} onClick={getOrder}>
         <div>
           <img src={item.img1} alt={item.name} />
         </div>
@@ -63,7 +59,7 @@ const CartPage = () => {
           <p>{tinhtoan(item.price)}</p>
         </div>
 
-        <div id={index}>
+        <div id={item._id.$oid}>
           <ButtonQuality num={getValue} getAmout={item.amout} />
         </div>
 
