@@ -6,8 +6,7 @@ import { useDispatch } from "react-redux";
 import { listCartActions } from "../store/listCart";
 import { tinhtoan, total } from "../data/data";
 import ButtonQuality from "../data/buttonQuality";
-import { isFulfilled } from "@reduxjs/toolkit";
-
+import { Link } from "react-router-dom";
 const CartPage = () => {
   let theOrder = 0;
   // có nên sài useRef ko ? khi sài phải ghi theOrder.current
@@ -41,10 +40,15 @@ const CartPage = () => {
     dispatch(listCartActions.update_cart(gop));
   };
 
+  const deleteHandle = (e) => {
+    // console.log(e.target.parentNode.id);
+    dispatch(listCartActions.delete_cart(e.target.parentNode.id));
+  };
+
   useEffect(() => {
     localStorage.setItem("cartList", JSON.stringify(listCart));
   }, [getOrder]);
-  // khi click vào thay đổi số lượng sản phẩm thì sẽ cập nhật lại localStore luôn,còn các trường hợp khác thì ko cập nhật
+  // khi click vào thay đổi số lượng sản phẩm hoặc xóa sản phẩm thì sẽ cập nhật lại localStore luôn,còn các trường hợp khác thì ko cập nhật
 
   const showList = listCart.map((item) => {
     return (
@@ -64,8 +68,8 @@ const CartPage = () => {
         </div>
 
         <div>{tinhtoan(total(item.price, item.amout))}</div>
-        <div>
-          <h5>REMOVE</h5>
+        <div id={item._id.$oid}>
+          <h5 onClick={deleteHandle}>REMOVE</h5>
         </div>
       </div>
     );
@@ -77,7 +81,7 @@ const CartPage = () => {
       <h1 style={{ textAlign: "left" }}>SHOPPING CART</h1>
       <div className={classes.frame}>
         <div className={classes.left}>
-          <div className={classes.list}>
+          <div className={`${classes.list} ${classes.title}`}>
             <div>
               <h5>IMAGE</h5>
             </div>
@@ -98,8 +102,29 @@ const CartPage = () => {
             </div>
           </div>
           {showList}
+          <div className={classes.nav}>
+            <Link to="/shop">
+              <span className={classes.process}>Continue shopping</span>
+            </Link>
+            <Link to="/checkout">
+              <span className={classes.checkout}>Proceed to checkout</span>
+            </Link>
+          </div>
         </div>
-        <div className={classes.right}>222</div>
+        <div className={classes.right}>
+          <h2>CART TOTAL</h2>
+          <div>
+            <span>SUBTOTAL</span>
+            <span className={classes.priceRight}>SUBTOTAL</span>
+          </div>
+          <hr />
+          <div>
+            <span>SUBTOTAL</span>
+            <span className={classes.priceRight}>SUBTOTAL</span>
+          </div>
+          <input type="text" placeholder="Enter your coupon" />
+          <button>Apply coupon</button>
+        </div>
       </div>
     </div>
   );

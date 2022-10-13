@@ -53,10 +53,18 @@ const DetailPage = () => {
     // console.log(pack);
     let getOld = JSON.parse(localStorage.getItem("cartList")) || [];
     // console.log(getOld);
-    getOld.push(pack);
-    // console.log(getOld);
+    // console.log(pack._id.$oid);
+    const index = getOld.findIndex((item) => item._id.$oid === pack._id.$oid);
+    // console.log(index);
+    if (index !== -1) {
+      getOld[index] = pack;
+    } else getOld.push(pack);
+    // xem coi sản phẩm có bị trùng ko ? nếu trùng thì thay thế cái mới, còn ko thì thêm vào mảng
+
     localStorage.setItem("cartList", JSON.stringify(getOld));
     dispatch(listCartActions.add_cart(getOld));
+
+    history.push("/cart");
   };
 
   return (

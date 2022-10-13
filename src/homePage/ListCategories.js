@@ -22,7 +22,7 @@ const ListCategories = () => {
 
       <div className={classes.frame} onClick={clickHandler}>
         <div className={classes.col}>
-          <div className={classes.back}></div>
+          {/* <div className={classes.back}></div> */}
           <img src={img1} alt="1" />
         </div>
 
