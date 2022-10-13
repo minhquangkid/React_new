@@ -5,6 +5,11 @@ const ButtonQuality = (props) => {
   const [number, setNumber] = useState(1);
 
   useEffect(() => {
+    setNumber(props.getAmout);
+  }, []);
+  // lấy giá trị bên ngoài truyền vào để cập nhật số lượng
+
+  useEffect(() => {
     props.num(number);
   }, [number]);
   // phải dùng useEffect để truyền giá trị ra ngoài nút khi state được thay đổi hoàn toàn, vì nếu truyền trực tiếp number ngay sau khi vừa setNumber thì nó sẽ ko cập nhật state liền lập tức, dẫn đến chậm trễ

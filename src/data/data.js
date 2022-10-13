@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 
 export const tinhtoan = (arr) => {
+  arr = arr.toString();
   const leng = arr.length;
   let com = ",";
   let chuoi = "";
@@ -14,9 +15,13 @@ export const tinhtoan = (arr) => {
     }
     // console.log(chuoi);
   }
-  return chuoi;
+  return `${chuoi} VNĐ`;
 };
 //count % 3 là count chia 3 lấy phần dư
+
+export const total = (price, amount) => {
+  return Number(price) * Number(amount);
+};
 
 // tạo  tham số truyền vào cho custom hook là  hàm xử lý sau khi lấy được kết quả JSON API , và biến depence cho useEffect
 const useData = (handle, depence) => {

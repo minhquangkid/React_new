@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialListCart = {
   content: [],
-  //   isShow: false,
+  // listAmount: [],
 };
 
 // các thuộc tính name, initialState, reducers là có sẵn trong createSlice
@@ -15,8 +15,9 @@ const ListCart = createSlice({
       //   state.isShow = true;
     },
     update_cart(state, action) {
-      state.content = action.payload;
-      //   state.isShow = true;
+      if (state.content.length !== 0) {
+        state.content[action.payload.order].amout = action.payload.value;
+      }
     },
     delete_cart(state, action) {
       state.content = action.payload;

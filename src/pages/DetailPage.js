@@ -75,7 +75,7 @@ const DetailPage = () => {
           <div className={classes.adjust}>
             <span>QUANTITY </span>
             <span>
-              <ButtonQuality num={getValue} />
+              <ButtonQuality num={getValue} getAmout={1} />
             </span>
             <span className={classes.btn} onClick={submitHandle}>
               Add to Cart

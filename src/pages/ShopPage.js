@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import BannerShop from "../shopPage/bannerShop";
+import BannerTop from "../Navbar/bannerTop";
+
 import Middle from "../shopPage/middle";
 
 const ShopPage = () => {
   return (
     <div>
-      {/* <BannerShop /> */}
+      <BannerTop left={"Shop"} right={"Shop"} />
       <Middle />
     </div>
   );

@@ -6,7 +6,7 @@ const ImgGroup = (props) => {
     <Fragment>
       <img src={props.img1} alt={props.name} id={props.id} />
       <h4>{props.name}</h4>
-      <p>{`${tinhtoan(props.price)} VNĐ`}</p>
+      <p>{tinhtoan(props.price)}</p>
     </Fragment>
   );
 };
