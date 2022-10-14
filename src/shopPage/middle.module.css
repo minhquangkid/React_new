@@ -40,4 +40,15 @@
 .box {
   word-wrap: break-word;
   text-align: center;
+  animation: zoom-out 1s ease;
+}
+
+@keyframes zoom-out {
+  0% {
+    transform: scale(0, 0);
+  }
+
+  100% {
+    transform: scale(1, 1);
+  }
 }

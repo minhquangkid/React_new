@@ -22,7 +22,7 @@ const RegisterPage = () => {
   const nameValidated = (inf, err) => {
     const getName = nameRef.current.value;
     if (getName === "") {
-      err.push("khong de trong input name");
+      err.push("không để trống input name");
       return;
     }
 
@@ -32,11 +32,11 @@ const RegisterPage = () => {
   const emailValidated = (inf, err) => {
     const getEmail = emailRef.current.value;
     if (getEmail === "") {
-      err.push("khong de trong input email");
+      err.push("không để trống input email");
       return;
     }
     if (!getEmail.includes("@")) {
-      err.push("email phai co @");
+      err.push("Email phải có @");
       return;
     }
 
@@ -46,7 +46,7 @@ const RegisterPage = () => {
     console.log(test);
     if (test.length !== 0) {
       console.log("bi trung");
-      err.push("email da ton tai");
+      err.push("Email đã tồn tại");
       return;
     }
 
@@ -56,11 +56,11 @@ const RegisterPage = () => {
   const passValidated = (inf, err) => {
     const getPass = passRef.current.value;
     if (getPass === "") {
-      err.push("khong de trong password");
+      err.push("Không để trống password");
       return;
     }
     if (getPass.length < 9) {
-      err.push("password phai nhieu hon 8 ki tu");
+      err.push("Password phải nhiều hơn 8 kí tự");
       return;
     }
     inf.pass = getPass;
@@ -69,7 +69,7 @@ const RegisterPage = () => {
   const phoneValidated = (inf, err) => {
     const getPhone = phoneRef.current.value;
     if (getPhone.length < 10) {
-      err.push("sdt phai nhieu hon 9 so");
+      err.push("SĐT phải nhiều hơn 9 số");
       return;
     }
     inf.phone = getPhone;

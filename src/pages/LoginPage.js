@@ -25,11 +25,11 @@ const LoginPage = () => {
   const emailValidated = (inf, err) => {
     const getEmail = emailRef.current.value;
     if (getEmail === "") {
-      err.push("khong de trong input email");
+      err.push("Không để trống input email");
       return;
     }
     if (!getEmail.includes("@")) {
-      err.push("email phai co @");
+      err.push("Email phải có @");
       return;
     }
 
@@ -38,8 +38,8 @@ const LoginPage = () => {
     });
     // console.log(test);
     if (test.length === 0) {
-      console.log("ko co email nao trung");
-      err.push("ko co email nao trung");
+      console.log("Không có email nào trùng");
+      err.push("Không có email nào trùng");
       return;
     }
     // lấy hết toàn bộ dữ liệu mà có mail trùng gắn vô inf
@@ -49,11 +49,11 @@ const LoginPage = () => {
   const passValidated = (inf, err) => {
     const getPass = passRef.current.value;
     if (getPass === "") {
-      err.push("khong de trong password");
+      err.push("Không để trống password");
       return;
     }
     if (getPass.length < 9) {
-      err.push("password phai nhieu hon 8 ki tu");
+      err.push("Password phải nhiều hơn 8 kí tự");
       return;
     }
 
@@ -63,8 +63,8 @@ const LoginPage = () => {
     });
     console.log(test);
     if (test.length === 0) {
-      console.log("nhap sai mat khau");
-      err.push("nhap sai mat khau");
+      console.log("Nhập sai mật khẩu");
+      err.push("Nhập sai mật khẩu");
       passRef.current.value = "";
       return;
     }

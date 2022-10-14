@@ -69,8 +69,8 @@ const Navbar = () => {
         >
           Cart
         </span>
-        {isLogin && <span>{inf.name}</span>}
-        {isLogin && <span onClick={logoutHandle}>"(Logout)"</span>}
+        {isLogin && <span>({inf.name})</span>}
+        {isLogin && <span onClick={logoutHandle}>[Logout]</span>}
       </div>
     </div>
   );

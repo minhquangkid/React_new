@@ -38,7 +38,7 @@ const Popup = () => {
         <div>
           <h3>{detail.name}</h3>
           <h4>{tinhtoan(detail.price)}</h4>
-          <p>{detail.long_desc}</p>
+          <p>{detail.short_desc}</p>
           <button id={detail._id.$oid} className={classes.view} onClick={getId}>
             View Detail
           </button>

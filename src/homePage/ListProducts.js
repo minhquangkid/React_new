@@ -28,7 +28,12 @@ const ListProducts = () => {
 
   const tam = list.map((e) => {
     return (
-      <div key={e._id.$oid} id={e._id.$oid} onClick={getDetail}>
+      <div
+        key={e._id.$oid}
+        id={e._id.$oid}
+        onClick={getDetail}
+        className={classes.anh}
+      >
         <ImgGroup img1={e.img1} name={e.name} price={e.price} />
       </div>
     );

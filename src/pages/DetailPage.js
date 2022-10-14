@@ -7,6 +7,7 @@ import ImgGroup from "../data/imgGroup";
 import classes from "./DetailPage.module.css";
 import { useDispatch } from "react-redux";
 import { listCartActions } from "../store/listCart";
+import { useSelector } from "react-redux";
 
 const DetailPage = () => {
   const dispatch = useDispatch();
@@ -21,6 +22,8 @@ const DetailPage = () => {
   const [amount, setAmount] = useState(1);
   const params = useParams();
   // dùng id trong params.id  vì trong App.js ta đặt <Route path="/detail/:id">
+
+  const isLogin = useSelector((state) => state.login.isLogin);
 
   useData(getData);
 
@@ -49,22 +52,26 @@ const DetailPage = () => {
   };
 
   const submitHandle = () => {
-    const pack = { ...detail, amount };
-    // console.log(pack);
-    let getOld = JSON.parse(localStorage.getItem("cartList")) || [];
-    // console.log(getOld);
-    // console.log(pack._id.$oid);
-    const index = getOld.findIndex((item) => item._id.$oid === pack._id.$oid);
-    // console.log(index);
-    if (index !== -1) {
-      getOld[index] = pack;
-    } else getOld.push(pack);
-    // xem coi sản phẩm có bị trùng ko ? nếu trùng thì thay thế cái mới, còn ko thì thêm vào mảng
+    if (!isLogin) {
+      history.push("/login");
+    } else {
+      const pack = { ...detail, amount };
+      // console.log(pack);
+      let getOld = JSON.parse(localStorage.getItem("cartList")) || [];
+      // console.log(getOld);
+      // console.log(pack._id.$oid);
+      const index = getOld.findIndex((item) => item._id.$oid === pack._id.$oid);
+      // console.log(index);
+      if (index !== -1) {
+        getOld[index] = pack;
+      } else getOld.push(pack);
+      // xem coi sản phẩm có bị trùng ko ? nếu trùng thì thay thế cái mới, còn ko thì thêm vào mảng
 
-    localStorage.setItem("cartList", JSON.stringify(getOld));
-    dispatch(listCartActions.add_cart(getOld));
+      localStorage.setItem("cartList", JSON.stringify(getOld));
+      dispatch(listCartActions.add_cart(getOld));
 
-    history.push("/cart");
+      history.push("/cart");
+    }
   };
 
   return (

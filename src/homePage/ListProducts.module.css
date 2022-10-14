@@ -17,3 +17,10 @@
   width: 240px;
   height: auto;
 }
+.anh {
+  opacity: 1;
+}
+.anh:hover {
+  opacity: 0.6;
+  transition-duration: 0.5s;
+}
