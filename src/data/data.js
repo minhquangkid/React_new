@@ -1,5 +1,17 @@
 import React, { useEffect, useState, useRef } from "react";
 
+export const sum = (arr) => {
+  const sumArray = arr.map((e) => {
+    return Number(e.price) * Number(e.amount);
+  });
+
+  const result = sumArray.reduce((total, current) => {
+    return total + current;
+  }, 0);
+
+  return result;
+};
+
 export const tinhtoan = (arr) => {
   arr = arr.toString();
   const leng = arr.length;

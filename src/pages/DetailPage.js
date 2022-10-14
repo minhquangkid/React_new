@@ -18,7 +18,7 @@ const DetailPage = () => {
     category: "",
   });
   const [list, setList] = useState([]);
-  const [amout, setAmout] = useState(1);
+  const [amount, setAmount] = useState(1);
   const params = useParams();
   // dùng id trong params.id  vì trong App.js ta đặt <Route path="/detail/:id">
 
@@ -45,11 +45,11 @@ const DetailPage = () => {
 
   const getValue = (e) => {
     // console.log(e);
-    setAmout(e);
+    setAmount(e);
   };
 
   const submitHandle = () => {
-    const pack = { ...detail, amout };
+    const pack = { ...detail, amount };
     // console.log(pack);
     let getOld = JSON.parse(localStorage.getItem("cartList")) || [];
     // console.log(getOld);
@@ -83,7 +83,7 @@ const DetailPage = () => {
           <div className={classes.adjust}>
             <span>QUANTITY </span>
             <span>
-              <ButtonQuality num={getValue} getAmout={1} />
+              <ButtonQuality num={getValue} getAmount={1} />
             </span>
             <span className={classes.btn} onClick={submitHandle}>
               Add to Cart

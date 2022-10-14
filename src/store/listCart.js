@@ -20,7 +20,7 @@ const ListCart = createSlice({
           (e) => e._id.$oid === action.payload.order
         );
         if (index !== -1) {
-          state.content[index].amout = action.payload.value;
+          state.content[index].amount = action.payload.value;
         }
         // findIndex là để tìm vị trí id trong mảng, khi có rồi sẽ cập nhật số lượng cho đúng đối tượng (nếu bằng -1 là lúc đầu chưa có gì sẽ ko tìm được kết quả trùng và trả về -1)
       }

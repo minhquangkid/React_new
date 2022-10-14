@@ -4,7 +4,7 @@ import classes from "./CartPage.module.css";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { listCartActions } from "../store/listCart";
-import { tinhtoan, total } from "../data/data";
+import { sum, tinhtoan, total } from "../data/data";
 import ButtonQuality from "../data/buttonQuality";
 import { Link } from "react-router-dom";
 const CartPage = () => {
@@ -22,8 +22,6 @@ const CartPage = () => {
   }, []);
 
   const getOrder = (e) => {
-    // console.log(e.target.parentNode.parentNode.id);
-
     if (e.target.parentNode.parentNode.id) {
       theOrder = e.target.parentNode.parentNode.id;
       console.log(theOrder);
@@ -32,9 +30,6 @@ const CartPage = () => {
   };
 
   const getValue = (e) => {
-    // console.log(theOrder);
-    // console.log(listCart);
-    // console.log(e);
     const gop = { order: theOrder, value: e };
 
     dispatch(listCartActions.update_cart(gop));
@@ -64,10 +59,10 @@ const CartPage = () => {
         </div>
 
         <div id={item._id.$oid}>
-          <ButtonQuality num={getValue} getAmout={item.amout} />
+          <ButtonQuality num={getValue} getAmount={item.amount} />
         </div>
 
-        <div>{tinhtoan(total(item.price, item.amout))}</div>
+        <div>{tinhtoan(total(item.price, item.amount))}</div>
         <div id={item._id.$oid}>
           <h5 onClick={deleteHandle}>REMOVE</h5>
         </div>
@@ -115,12 +110,16 @@ const CartPage = () => {
           <h2>CART TOTAL</h2>
           <div>
             <span>SUBTOTAL</span>
-            <span className={classes.priceRight}>SUBTOTAL</span>
+            <span className={classes.priceRight}>
+              {tinhtoan(sum(listCart))}
+            </span>
           </div>
           <hr />
           <div>
-            <span>SUBTOTAL</span>
-            <span className={classes.priceRight}>SUBTOTAL</span>
+            <span>TOTAL</span>
+            <span className={classes.priceRight}>
+              {tinhtoan(sum(listCart))}
+            </span>
           </div>
           <input type="text" placeholder="Enter your coupon" />
           <button>Apply coupon</button>

@@ -5,7 +5,7 @@ const ButtonQuality = (props) => {
   const [number, setNumber] = useState(1);
 
   useEffect(() => {
-    setNumber(props.getAmout);
+    setNumber(props.getAmount);
   }, []);
   // lấy giá trị bên ngoài truyền vào để cập nhật số lượng
 
