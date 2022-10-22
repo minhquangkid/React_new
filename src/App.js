@@ -6,7 +6,7 @@ import TestInput from "./testInput";
 import Home from "./Home";
 import Something from "./something";
 import { Switch } from "react-router-dom";
-
+import One from "./one";
 function App() {
   return (
     <Fragment>
@@ -23,6 +23,7 @@ function App() {
           <Something />
         </Route>
       </Switch>
+      <One />
     </Fragment>
   );
 }
